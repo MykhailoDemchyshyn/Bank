@@ -1,0 +1,51 @@
+﻿
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>EditRoleModel</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td>@ViewBag.FirstName</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>@ViewBag.LastName</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@ViewBag.Email</td>
+        </tr>
+        <tr>
+            <td>Role</td>
+            <td>@ViewBag.Role</td>
+        </tr>
+    </table>
+    <div>
+        <p>Choise new role</p>
+        @Html.RadioButton("role", "admin")
+        <span>admin</span> <br />
+        @Html.RadioButton("role", "manager")
+        <span>manager</span> <br />
+        @Html.RadioButton("role", "user", true)
+        <span>user</span>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
